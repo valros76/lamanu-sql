@@ -1,1 +1,2 @@
-/*Création de la base de donnée langages*/
+/*Création de la base de donnée languages*/
+CREATE DATABASE languages
