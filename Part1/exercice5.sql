@@ -1,2 +1,2 @@
 /*Supprimer la base de données languages.*/
-DROP DATABASE languages
+DROP DATABASE languages;

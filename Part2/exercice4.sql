@@ -6,4 +6,4 @@ CREATE DATABASE webDevelopment.librairies
 (
    id INT PRIMARY AUTO_INCREMENT,
    library VARCHAR(80)
-)
+);

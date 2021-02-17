@@ -8,4 +8,4 @@ ALTER TABLE `codex.clients`
 DROP `secondPhoneNumber`
 MODIFY `phoneNumber` VARCHAR(255)
 ADD `zipCODE` VARCHAR(5),
-`city` VARCHAR(80)
+`city` VARCHAR(80);

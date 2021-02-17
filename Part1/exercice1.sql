@@ -1,2 +1,2 @@
 /*Création de la base de donnée languages*/
-CREATE DATABASE languages
+CREATE DATABASE languages;

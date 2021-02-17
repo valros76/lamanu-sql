@@ -6,4 +6,4 @@ CREATE TABLE IF NOT EXISTS webDevelopment.frameworks
 (
    id INT PRIMARY AUTO_INCREMENT,
    name VARCHAR(80)
-)
+);
