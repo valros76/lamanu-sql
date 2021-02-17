@@ -3,4 +3,4 @@ Dans la base de données webDevelopment, dans la table frameworks changer le typ
 
 */
 ALTER TABLE `webDevelopment.frameworks`
-MODIFY version VARCHAR(11)
+MODIFY version VARCHAR(11);

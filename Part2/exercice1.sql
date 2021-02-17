@@ -5,4 +5,4 @@ CREATE TABLE webDevelopment.languages
 (
    id INT PRIMARY AUTO_INCREMENT,
    language VARCHAR(255)
-)
+);

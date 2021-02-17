@@ -3,4 +3,4 @@
 Et on commence à utiliser les magic quotes, pour les bonnes pratiques 😂
 */
 ALTER TABLE `webDevelopment.frameworks`
-CHANGE `name` `framework` VARCHAR(80)
+CHANGE `name` `framework` VARCHAR(80);

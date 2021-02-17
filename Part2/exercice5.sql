@@ -6,4 +6,4 @@ CREATE TABLE webDevelopment.ide
 (
    id INT PRIMARY AUTO_INCREMENT,
    ideName VARCHAR(80)
-)
+);

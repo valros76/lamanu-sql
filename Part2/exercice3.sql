@@ -6,4 +6,4 @@ CREATE TABLE webDevelopment.frameworks
 (
    id INT PRIMARY AUTO_INCREMENT,
    name VARCHAR(80)
-)
+);

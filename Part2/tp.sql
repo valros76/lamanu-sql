@@ -28,4 +28,4 @@ CREATE TABLE IF NOT EXISTS codex.clients
    firstPhoneNumber INT,
    secondPhoneNumber INT,
    mail VARCHAR(320)
-)
+);

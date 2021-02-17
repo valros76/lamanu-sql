@@ -6,4 +6,4 @@ CREATE TABLE webDevelopment.tools
 (
    id INT PRIMARY AUTO_INCREMENT,
    tool VARCHAR(255)
-)
+);
