@@ -89,15 +89,81 @@ ORDER BY `games`.`g_published_at` ASC;
  */
 SELECT *
 FROM `games`
-LEFT JOIN `studios` ON `games`.`s_id` = `studios`.`s_id`
+   LEFT JOIN `studios` ON `games`.`s_id` = `studios`.`s_id`
 ORDER BY `games`.`g_name` ASC;
 /*
-Affichez le nom de jeu, le studio, la nationalité de la société des jeux disponibles. Utiliser une
-jointure avec join
-*/
+ Affichez le nom de jeu, le studio, la nationalité de la société des jeux disponibles. Utiliser une
+ jointure avec join
+ */
 SELECT `games`.`g_name` AS `game_name`,
    `studios`.`s_name` AS `studios_name`,
    `studios`.`s_nationality` AS `studios_nationality`
 FROM `games`
-JOIN `studios` ON `games`.`s_id` = `studios`.`s_id`
+   JOIN `studios` ON `games`.`s_id` = `studios`.`s_id`
 ORDER BY `games`.`g_name`;
+/*
+ Affichez le nom et le mode de jeu des jeux console grand public triés par pegi croissant
+ */
+SELECT `games`.`g_name`,
+   `games`.`g_mode`,
+   `games`.`g_pegi` AS `pegi_exercice_verification`
+FROM `games`
+ORDER BY `games`.`g_pegi` ASC;
+/*
+ Affichez le nom de jeu et les plateformes de tous les jeux triés par ordre alphabétique
+ */
+SELECT `games`.`g_name` AS `game_name`,
+   `platforms`.`p_name`
+FROM `games`
+   INNER JOIN `games_platforms` ON `games`.`g_id` = `games_platforms`.`g_id`
+   INNER JOIN `platforms` ON `games_platforms`.`p_id` = `platforms`.`p_id`
+ORDER BY `games`.`g_name` ASC;
+/*
+ Calculez le nombre total de jeux.
+ */
+SELECT COUNT(`games`.`g_name`) AS `nb_games`
+FROM `games`;
+/*
+ Affichez le nombre de jeux uniques
+ */
+SELECT COUNT(DISTINCT `games`.`g_name`) AS `nb_games`
+FROM `games`;
+/*
+ Calculez le nombre de jeux par studio.
+ */
+SELECT `studios`.`s_name` as `studio_name`,
+   COUNT(`games`.`g_id`) as `nb_games`
+FROM `studios`
+   INNER JOIN `games` ON `studios`.`s_id` = `games`.`s_id`
+WHERE `games`.`g_id` IN(
+      SELECT `games`.`g_id`
+      FROM `games`
+   )
+GROUP BY `studios`.`s_name`;
+/*
+ Calculez le nombre de jeux par studio et par plateforme
+ */
+SELECT `studios`.`s_name`, `platforms`.`p_name`, COUNT(`games`.`g_id`) as `nb_games`
+FROM `games`
+INNER JOIN `studios` ON `games`.`s_id` = `studios`.`s_id`
+INNER JOIN `games_platforms` ON `games`.`g_id` = `games_platforms`.`g_id`
+INNER JOIN `platforms` ON `games_platforms`.`p_id` = `platforms`.`p_id`
+GROUP BY `studios`.`s_name`, `platforms`.`p_name`;
+
+/*
+Affichez les jeux disponibles sur au moins 4 plateformes
+*/
+SELECT `games`.`g_name`,COUNT(`games`.`g_id`) as `count_nb_platforms`
+FROM `games_platforms`
+INNER JOIN `games` ON `games_platforms`.`g_id` = `games`.`g_id`
+GROUP BY `games`.`g_name`
+HAVING COUNT(`games`.`g_id`) >= 4;
+
+/*
+Calculez le nombre moyen de jeux par plateforme
+*/
+SELECT `platforms`.`p_name`,ROUND(AVG(`games_platforms`.`g_id`))
+FROM `games_platforms`
+INNER JOIN `platforms` ON `games_platforms`.`p_id` = `platforms`.`p_id`
+GROUP BY `platforms`.`p_name`
+HAVING AVG(`games_platforms`.`g_id`);
