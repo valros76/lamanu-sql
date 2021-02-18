@@ -2,8 +2,8 @@
 
 id (type INT, auto-incrémenté, clé primaire)
 name (type VARCHAR)*/
-CREATE TABLE webDevelopment.frameworks
+CREATE TABLE `webDevelopment`.`frameworks`
 (
-   id INT PRIMARY AUTO_INCREMENT,
-   name VARCHAR(80)
+   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+   `name` VARCHAR(80)
 );

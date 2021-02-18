@@ -16,16 +16,16 @@ Créer la base codex. Y créer une table clients qui aura comme colonnes :
 */
 
 /*Création de la database codex*/
-CREATE DATABASE IF NOT EXISTS codex
+CREATE DATABASE IF NOT EXISTS `codex`
 /*Création de la table clients dans la database codex*/
-CREATE TABLE IF NOT EXISTS codex.clients
+CREATE TABLE IF NOT EXISTS `codex`.`clients`
 (
-   id INT PRIMARY AUTO_INCREMENT,
-   lastname VARCHAR(80),
-   firstname VARCHAR(50),
-   birthDate DATE,
-   adress VARCHAR(320),
-   firstPhoneNumber INT,
-   secondPhoneNumber INT,
-   mail VARCHAR(320)
+   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+   `lastname` VARCHAR(80),
+   `firstname` VARCHAR(50),
+   `birthDate` DATE,
+   `adress` VARCHAR(320),
+   `firstPhoneNumber` INT,
+   `secondPhoneNumber` INT,
+   `mail` VARCHAR(320)
 );

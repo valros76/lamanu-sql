@@ -2,8 +2,8 @@
 
 id (type INT, auto-incrémenté, clé primaire)
 ideName (type VARCHAR)*/
-CREATE TABLE webDevelopment.ide
+CREATE TABLE `webDevelopment`.`ide`
 (
-   id INT PRIMARY AUTO_INCREMENT,
-   ideName VARCHAR(80)
+   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+   `ideName` VARCHAR(80)
 );

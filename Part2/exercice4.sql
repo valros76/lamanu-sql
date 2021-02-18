@@ -2,8 +2,8 @@
 
 id (type INT, auto-incrémenté, clé primaire)
 library (type VARCHAR)*/
-CREATE DATABASE webDevelopment.librairies
+CREATE DATABASE `webDevelopment`.`librairies`
 (
-   id INT PRIMARY AUTO_INCREMENT,
-   library VARCHAR(80)
+   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+   `library` VARCHAR(80)
 );
