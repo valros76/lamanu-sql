@@ -162,8 +162,16 @@ HAVING COUNT(`games`.`g_id`) >= 4;
 /*
 Calculez le nombre moyen de jeux par plateforme
 */
-SELECT `platforms`.`p_name`,ROUND(AVG(`games_platforms`.`g_id`))
-FROM `games_platforms`
-INNER JOIN `platforms` ON `games_platforms`.`p_id` = `platforms`.`p_id`
-GROUP BY `platforms`.`p_name`
-HAVING AVG(`games_platforms`.`g_id`);
+-- SELECT `platforms`.`p_name`,ROUND(AVG(`games_platforms`.`g_id`)) as `moyenne`
+-- FROM `games_platforms`
+-- INNER JOIN `platforms` ON `games_platforms`.`p_id` = `platforms`.`p_id`
+-- WHERE `games_platforms`.`g_id`
+-- GROUP BY `platforms`.`p_name`
+-- HAVING AVG(`games_platforms`.`p_id`);
+
+SELECT AVG(`games_id`) as `jeux/plateformes`
+FROM(
+        SELECT COUNT(`games_platforms`.`g_id`) AS `games_id`
+        FROM `games_platforms`
+        GROUP BY `games_platforms`.`p_id`
+    ) AS `moyenne jeux/plateformes`;
